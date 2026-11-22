@@ -161,6 +161,7 @@ input,select,textarea{font:16px var(--f);color:var(--ink)}
 .sb small{color:var(--mut);font-size:12px}
 .sb.rnd{background:var(--org);color:#fff;border-color:var(--org);box-shadow:0 3px 0 var(--org-d)}
 .sb.rnd small{color:#fff}
+.sb.sel{border-color:var(--org);box-shadow:0 0 0 3px var(--peach)}
 .loading{display:flex;align-items:center;gap:10px;color:var(--mut);padding:16px}
 .spin{width:26px;height:26px;border-radius:6px;background:var(--teal);animation:sp 1s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
@@ -377,6 +378,80 @@ body.boardmode{overflow:hidden;padding-bottom:0}
 textarea.names{width:100%;height:80px;border:2px solid var(--teal-l);border-radius:12px;padding:6px}
 .encs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
 .imgout{max-width:100%;border-radius:12px;border:2px solid var(--line)}
+
+/* ركن الألعاب — adventures */
+#adv{position:fixed;inset:0;z-index:85;background:var(--bg);display:flex;flex-direction:column}
+.advstart{flex:1;display:grid;place-items:center;padding:16px;overflow:auto;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4l8 8-8 8-8-8z' fill='%23ffffff' fill-opacity='.08'/%3E%3C/svg%3E")}
+.advcard{background:#fff;border-radius:28px;padding:20px 22px;width:min(560px,100%);box-shadow:0 10px 0 var(--teal-dd),0 24px 40px #0004;display:grid;gap:10px;text-align:center}
+.advacad{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;color:var(--teal-dd)}
+.advacad svg{width:40px;height:40px}
+.advcard h2{margin:0;font-size:clamp(26px,4vw,38px);color:var(--org-d);line-height:1.2}
+.advworld{margin:0;color:var(--teal-d);font-weight:800}
+.advcard dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;text-align:start;background:var(--teal-xl);border-radius:16px;padding:10px 14px}
+.advcard dt{font-weight:800;color:var(--teal-dd)}.advcard dd{margin:0}
+.advkids{display:flex;gap:12px;justify-content:center}
+.advkids button{width:110px;border-radius:18px;border:3px solid var(--line);background:#fff;padding:6px;display:grid;justify-items:center;font-weight:800}
+.advkids button svg{width:62px;height:100px}
+.advkids button.on{border-color:var(--org);box-shadow:0 0 0 4px var(--peach)}
+.advgame{flex:1;display:flex;flex-direction:column;min-height:0}
+.advhud{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--teal-dd);color:#fff;flex:none;flex-wrap:wrap}
+.advx{width:40px;height:40px;border-radius:12px;background:#ffffff26;color:#fff;font-size:20px}
+.advbar{flex:1;min-width:140px;height:22px;border-radius:99px;background:#ffffff30;position:relative;overflow:hidden}
+.advbar i{position:absolute;inset:0 0 0 auto;width:0;background:linear-gradient(90deg,var(--peach),var(--org));border-radius:99px;transition:width .6s}
+.advbar span{position:relative;display:block;text-align:center;font-size:13px;font-weight:800;line-height:22px}
+.advpts{background:#ffffff26;border-radius:99px;padding:2px 12px;font-weight:800;font-size:14px}
+.advt{min-height:36px;padding:0 10px;border-radius:10px;background:#ffffff1f;color:#fff;font-size:12px;font-weight:600}
+.advscene{position:relative;flex:1 1 auto;min-height:150px;overflow:hidden}
+.advscene svg{position:absolute;inset:0;width:100%;height:100%}
+.advbanner{position:absolute;top:14px;left:50%;transform:translateX(-50%) scale(.6);background:#fff;color:var(--teal-dd);border:3px solid var(--org);border-radius:16px;padding:4px 18px;font-weight:800;font-size:clamp(16px,2.4vw,22px);opacity:0;pointer-events:none}
+.advbanner.show{animation:banner 1.6s ease-out}
+@keyframes banner{15%{opacity:1;transform:translateX(-50%) scale(1.08)}25%{transform:translateX(-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-10px)}}
+.advpanel{flex:none;max-height:44vh;overflow:auto;background:#fff;border-top:4px solid var(--teal-xl);padding:12px max(3vw,12px)}
+.advpanel .opts{margin-top:8px}
+.advqh{display:flex;gap:8px;align-items:center;margin-bottom:4px}
+.advtag{background:var(--org);color:#fff;border-radius:99px;padding:1px 12px;font-weight:800;font-size:13px}
+.advtype{color:var(--teal-d);font-weight:800;font-size:13px}
+.advp{margin:4px 0;font-weight:800;color:var(--teal-dd);font-size:17px}
+.advayah{text-align:center;font-size:clamp(20px,2.6vw,28px);line-height:1.9}
+.advpanel .q{font-size:clamp(20px,2.6vw,28px);line-height:1.9}
+.advpanel .opt{min-height:48px;font-size:clamp(18px,2.2vw,24px);line-height:1.7}
+.advpanel .opt.f{font-size:16px}
+.advpanel .kopt{min-height:58px;font-family:var(--f);font-weight:800;font-size:20px;padding:6px}
+.advpanel .kopt:before{display:none}
+.advhint{margin-top:8px;background:var(--peach-l);border:2px dashed var(--peach);border-radius:14px;padding:6px 12px;color:var(--org-d);font-size:15px}
+.advwalk{text-align:center;font-weight:800;color:var(--teal-d);padding:16px;font-size:18px}
+.advend h2{color:var(--teal-dd)}
+.advmedal{width:min(200px,40vw);height:auto;margin:auto;animation:dance 1.2s ease-in-out infinite}
+.advstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.advstats div{background:var(--teal-xl);border-radius:14px;padding:6px;font-size:13px;color:var(--teal-dd)}
+.advstats b{display:block;font-size:24px}
+#advKid .lg{transform-box:fill-box;transform-origin:50% 0}
+#advKid.walking .lg.l{animation:legA .28s ease-in-out infinite alternate}
+#advKid.walking .lg.r{animation:legA .28s ease-in-out infinite alternate-reverse}
+@keyframes legA{from{transform:rotate(-24deg)}to{transform:rotate(24deg)}}
+#advKid .boatg{animation:bob 1.6s ease-in-out infinite}
+.waves{animation:wv 3s linear infinite}
+@keyframes wv{to{transform:translateX(-120px)}}
+.cloud{animation:cl 40s linear infinite}
+@keyframes cl{from{transform:translateX(1100px)}to{transform:translateX(-300px)}}
+.tok .tokin{transform-box:fill-box;transform-origin:50% 50%}
+.tok.got .tokin{animation:tokhit .7s forwards}
+@keyframes tokhit{30%{transform:translateY(-26px)}60%{transform:translateY(0) scale(1)}100%{transform:scale(.0) rotate(180deg);opacity:0}}
+.pl .plin{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);transition:transform .6s cubic-bezier(.3,1.6,.5,1)}
+.pl.on .plin{transform:scale(1)}
+.pl.tree.on .plin{transform:scale(2.2)}
+.shk{animation:shk .12s linear infinite}
+@keyframes shk{25%{transform:translate(var(--amp),0)}75%{transform:translate(calc(var(--amp)*-1),0)}}
+.bird{animation:bird 9s linear infinite;transform-box:fill-box}
+@keyframes bird{from{transform:translate(1050px,var(--by))}to{transform:translate(-80px,calc(var(--by) - 30px))}}
+@media(max-height:620px){.advpanel{max-height:50vh}.advhud{padding:4px 8px}}
+@media(min-width:700px){.advpanel .opts{grid-template-columns:1fr 1fr}.advpanel .mcols .opts{grid-template-columns:1fr}.advpanel .opt{min-height:44px;padding:4px 10px}.advpanel{max-height:40vh}}
+.rng{display:grid;gap:10px;background:var(--peach-l);border:2px solid var(--peach);border-radius:18px;padding:12px;margin-top:4px}
+.rng .row{justify-content:flex-start}
+.rng select{border:2px solid var(--teal-l);border-radius:12px;padding:6px 10px;min-height:44px;background:#fff;font:16px var(--f)}
+.corner{background:linear-gradient(135deg,var(--teal-xl),#fff);border:2px solid var(--teal-l);border-radius:26px;padding:14px;margin-bottom:18px}
+.corner .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.corner .grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -418,7 +493,7 @@ textarea.names{width:100%;height:80px;border:2px solid var(--teal-l);border-radi
   <div class="wrap hgrid">
    <div>
     <h1>العب واحفظ<br>مع <span>رفيق</span></h1>
-    <p>٤٠ لعبة على آخر ثلاثة أجزاء من القرآن الكريم، ورفيق معك يشجعك في كل خطوة</p>
+    <p><span id="hcount">٤٤</span> لعبة على آخر ثلاثة أجزاء من القرآن الكريم، ورفيق معك يشجعك في كل خطوة</p>
     <div class="jz"><span>جزء عمّ</span><span>جزء تبارك</span><span>جزء قد سمع</span></div>
    </div>
    <div id="heroRafiq" aria-hidden="true"></div>
@@ -427,6 +502,7 @@ textarea.names{width:100%;height:80px;border:2px solid var(--teal-l);border-radi
  <section class="band">
   <div class="wrap">
    <div id="mineSec" class="hide"><div class="sec-h"><h2>ألعابي</h2><span>ألعاب صنعها المعلم</span></div><div class="mine" id="mine"></div></div>
+   <div class="corner" id="corner"><div class="sec-h"><h2>ركن الألعاب</h2><span>مغامرات الحلقات: كل محطة سؤال، وكل إجابة صح خطوة لقدّام</span></div><div class="grid" id="cgrid"></div></div>
    <div class="sec-h"><h2>كل الألعاب</h2><span id="gcount"></span></div>
    <div class="filters" id="filters"></div>
    <div class="grid" id="ggrid"></div>
@@ -444,6 +520,52 @@ textarea.names{width:100%;height:80px;border:2px solid var(--teal-l);border-radi
 <div id="sheets"></div>
 <script>
 {
+/* =====================================================================
+   بيانات «ركن الألعاب» (مغامرات الحلقات) — عدّل هنا بسهولة
+   ---------------------------------------------------------------------
+   لكل سورة برقمها في المصحف:
+     theme : شكل العالم ومعناه:
+             'widen'   الطريق ضيق ومظلم ويوسع وينوّر مع كل إجابة
+             'dawn'    ليل يتحوّل لصبح
+             'stars'   سماء ليل والنجوم تزيد
+             'grow'    الشجر والزرع يكبر
+             'time'    الشمس تمشي في السماء (الزمن)
+             'calm'    الأرض تهتز ثم تهدأ
+             'birds'   أسراب الطير
+             'caravan' قافلة في الصحراء
+             'shield'  درع نور يكبر
+             'day'     نهار عادي
+     title : عنوان العالم
+     words : [الكلمة، معناها] تُستخدم في محطات «وصّل الكلمة بمعناها»
+     questions : أسئلة جاهزة
+        اختيار من متعدد: {type:'mcq', q:'السؤال', options:['أ','ب','ج'], answer:رقم الصحيحة من 0, hint:'تلميح'}
+        صح وغلط:        {type:'tf',  q:'العبارة', answer:true أو false, hint:'تلميح'}
+   باقي المحطات (إكمال الآية، ترتيب كلمات الآية، صح وغلط، الآية التالية)
+   تتولّد تلقائيًا من نص السورة نفسه.
+   لإضافة حلقة جديدة: انسخ أي سطر وغيّر رقم السورة والمحتوى.
+   ===================================================================== */
+const ACADEMY='أكاديمية رفاق';
+const AGE_GROUP='١٠–١٥ سنة';
+const ADV_QUESTIONS={
+ 78:{theme:'dawn',title:'من الليل إلى النهار',words:[['النبأ العظيم','يوم القيامة'],['مهادًا','ممهّدة كالفراش'],['أوتادًا','تثبّت الأرض كالأوتاد'],['سباتًا','راحة'],['سراجًا وهاجًا','الشمس']],questions:[{type:'mcq',q:'ما «السراج الوهّاج» المذكور في السورة؟',options:['الشمس','القمر','النجوم'],answer:0,hint:'هو الذي يضيء النهار'}]},
+ 93:{theme:'dawn',title:'من الليل إلى الضحى',words:[['الضحى','وقت ارتفاع الشمس أول النهار'],['سجى','سكن وأظلم'],['ما ودّعك','ما تركك'],['وما قلى','وما أبغضك'],['عائلًا','فقيرًا'],['فلا تنهر','فلا تزجره']],questions:[{type:'mcq',q:'بماذا أقسم الله في أول السورة؟',options:['بالضحى والليل','بالشمس والقمر','بالتين والزيتون'],answer:0,hint:'اسم السورة نفسه'},{type:'tf',q:'أمرت السورة بإكرام اليتيم وعدم قهره',answer:true,hint:'«فأما اليتيم فلا تقهر»'}]},
+ 94:{theme:'widen',title:'من الضيق إلى السعة',words:[['نشرح','نوسّع'],['وزرك','حِملك الثقيل'],['أنقض ظهرك','أثقل ظهرك'],['العسر','الشدة والصعوبة'],['يسرًا','سهولة وفرج'],['فانصب','اجتهد في العبادة']],questions:[{type:'mcq',q:'كم مرة تكررت «إن مع العسر يسرًا» في السورة؟',options:['مرة واحدة','مرتين','ثلاث مرات'],answer:1,hint:'اقرأ الآيتين ٥ و٦'},{type:'tf',q:'السورة تبشّر بأن مع كل شدة فرجًا',answer:true,hint:'«فإن مع العسر يسرًا»'}]},
+ 95:{theme:'grow',title:'بستان التين والزيتون',words:[['طور سينين','جبل الطور'],['البلد الأمين','مكة'],['أحسن تقويم','أحسن صورة وخِلقة'],['غير ممنون','غير مقطوع']],questions:[{type:'mcq',q:'ما «البلد الأمين» المذكور في السورة؟',options:['مكة','المدينة','القدس'],answer:0,hint:'فيها الكعبة'}]},
+ 97:{theme:'stars',title:'ليلة القدر',words:[['ليلة القدر','ليلة الشرف والعظمة'],['الروح','جبريل عليه السلام'],['مطلع الفجر','طلوع الفجر']],questions:[{type:'mcq',q:'ليلة القدر خير من…',options:['ألف شهر','مئة شهر','ألف يوم'],answer:0,hint:'الآية الثالثة'},{type:'mcq',q:'في أي شهر تكون ليلة القدر؟',options:['رمضان','شعبان','رجب'],answer:0,hint:'الشهر الذي أُنزل فيه القرآن'},{type:'tf',q:'ليلة القدر سلام حتى مطلع الفجر',answer:true,hint:'آخر آية في السورة'}]},
+ 99:{theme:'calm',title:'الأرض تهدأ',words:[['زُلزلت','تحرّكت حركة شديدة'],['أثقالها','ما في بطنها من الموتى'],['أشتاتًا','متفرّقين'],['مثقال ذرة','وزن أصغر شيء']],questions:[{type:'tf',q:'أي عمل خير ولو صغير جدًا سيراه الإنسان',answer:true,hint:'«فمن يعمل مثقال ذرة خيرًا يره»'}]},
+ 103:{theme:'time',title:'رحلة الزمن',words:[['العصر','الزمن'],['خُسر','خسارة'],['تواصوا','أوصى بعضهم بعضًا']],questions:[{type:'mcq',q:'كم صفة ذكرتها السورة للناجين من الخسارة؟',options:['أربع','اثنتان','ست'],answer:0,hint:'الإيمان، العمل الصالح، التواصي بالحق، التواصي بالصبر'}]},
+ 105:{theme:'birds',title:'أسراب الطير',words:[['كيدهم','مكرهم'],['تضليل','ضياع وبطلان'],['أبابيل','جماعات متتابعة'],['سجيل','طين متحجّر'],['كعصف مأكول','كورق زرع أكلته الدواب']],questions:[{type:'mcq',q:'ماذا أرسل الله على أصحاب الفيل؟',options:['طيرًا أبابيل','ريحًا شديدة','مطرًا غزيرًا'],answer:0,hint:'الآية الثالثة'}]},
+ 106:{theme:'caravan',title:'قافلة قريش',words:[['لإيلاف','لاعتياد وأُلفة'],['رحلة الشتاء والصيف','رحلتا التجارة'],['هذا البيت','الكعبة']],questions:[{type:'mcq',q:'ما النعمتان المذكورتان في آخر السورة؟',options:['الإطعام من الجوع والأمن من الخوف','المال والولد','المطر والزرع'],answer:0,hint:'«أطعمهم من جوع وآمنهم من خوف»'}]},
+ 107:{theme:'day',title:'طريق العطاء',words:[['يدعّ','يدفع بعنف'],['ساهون','غافلون'],['الماعون','ما يُعار من أدوات يحتاجها الناس']],questions:[{type:'tf',q:'السورة تذمّ من يمنع مساعدة الناس حتى بالأشياء البسيطة',answer:true,hint:'«ويمنعون الماعون»'}]},
+ 108:{theme:'grow',title:'نهر الخير',words:[['الكوثر','نهر في الجنة وخير كثير'],['وانحر','واذبح لله'],['شانئك','مُبغضك'],['الأبتر','المقطوع من كل خير']],questions:[{type:'mcq',q:'بماذا أمر الله نبيه ﷺ في السورة؟',options:['الصلاة والنحر لله','الصيام','الهجرة'],answer:0,hint:'«فصلِّ لربك وانحر»'}]},
+ 110:{theme:'dawn',title:'نور الفتح',words:[['الفتح','فتح مكة'],['أفواجًا','جماعات كثيرة'],['فسبّح','فنزّه الله']],questions:[{type:'mcq',q:'بماذا أمر الله بعد النصر والفتح؟',options:['التسبيح والاستغفار','الراحة','الفخر'],answer:0,hint:'«فسبّح بحمد ربك واستغفره»'}]},
+ 111:{theme:'day',title:'الطريق المستقيم',words:[['تبّت','خسرت وهلكت'],['ما أغنى عنه','ما نفعه'],['مسد','ليف']],questions:[]},
+ 112:{theme:'shield',title:'نور التوحيد',words:[['أحد','واحد لا شريك له'],['الصمد','الذي يُقصد في الحاجات'],['كفوًا','مثيلًا ومكافئًا']],questions:[{type:'tf',q:'سورة الإخلاص تتحدث عن توحيد الله',answer:true,hint:'«قل هو الله أحد»'},{type:'mcq',q:'معنى «ولم يكن له كفوًا أحد»',options:['ليس له مثيل','ليس له بيت','ليس له اسم'],answer:0,hint:'كفوًا = مثيلًا'}]},
+ 113:{theme:'dawn',title:'نور الفلق',words:[['الفلق','الصبح'],['غاسق إذا وقب','الليل إذا أظلم'],['النفاثات في العقد','الساحرات']],questions:[{type:'mcq',q:'نستعيذ في هذه السورة برب…',options:['الفلق','الناس','العالمين'],answer:0,hint:'اسم السورة'}]},
+ 114:{theme:'shield',title:'درع الذكر',words:[['الوسواس','الشيطان الذي يوسوس'],['الخنّاس','الذي يختفي عند ذكر الله'],['الجِنّة','الجن']],questions:[{type:'tf',q:'الشيطان يختفي ويبتعد عند ذكر الله',answer:true,hint:'معنى «الخنّاس»'}]},
+ 67:{theme:'stars',title:'سماء الملك',words:[['تبارك','تعاظم وكثر خيره'],['طباقًا','بعضها فوق بعض'],['تفاوت','اختلاف وخلل'],['فطور','شقوق'],['مصابيح','نجوم مضيئة']],questions:[{type:'mcq',q:'بماذا زيّن الله السماء الدنيا في السورة؟',options:['بمصابيح','بالسحاب','بالطيور'],answer:0,hint:'«ولقد زيّنا السماء الدنيا بمصابيح»'}]}
+};
+const ADV_JUZ_THEME={30:'day',29:'dawn',28:'grow'};
 /* ========== data ========== */
 const NAMES={58:'المجادلة',59:'الحشر',60:'الممتحنة',61:'الصف',62:'الجمعة',63:'المنافقون',64:'التغابن',65:'الطلاق',66:'التحريم',67:'الملك',68:'القلم',69:'الحاقة',70:'المعارج',71:'نوح',72:'الجن',73:'المزمل',74:'المدثر',75:'القيامة',76:'الإنسان',77:'المرسلات',78:'النبأ',79:'النازعات',80:'عبس',81:'التكوير',82:'الانفطار',83:'المطففين',84:'الانشقاق',85:'البروج',86:'الطارق',87:'الأعلى',88:'الغاشية',89:'الفجر',90:'البلد',91:'الشمس',92:'الليل',93:'الضحى',94:'الشرح',95:'التين',96:'العلق',97:'القدر',98:'البينة',99:'الزلزلة',100:'العاديات',101:'القارعة',102:'التكاثر',103:'العصر',104:'الهمزة',105:'الفيل',106:'قريش',107:'الماعون',108:'الكوثر',109:'الكافرون',110:'النصر',111:'المسد',112:'الإخلاص',113:'الفلق',114:'الناس'};
 const JUZ={30:[78,114],29:[67,77],28:[58,66]};
@@ -453,7 +575,9 @@ const AR=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 const Q={};
 const CDN='https://cdn.jsdelivr.net/npm/quran-json@3.1.2/dist/chapters/';
 const store={get(k,d){try{const v=localStorage.getItem('rafaq_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('rafaq_'+k,JSON.stringify(v))}catch(e){}}};
-async function loadSurah(n){if(Q[n])return Q[n];const c=store.get('s'+n,null);if(c&&c.length){Q[n]=c;return c}const m=await import(CDN+n+'.json/+esm');const v=m.default.verses.map(x=>x.text);Q[n]=v;store.set('s'+n,v);return v}
+const QF={},OFFS={};
+async function loadSurah(n){if(QF[n])return QF[n];const c=store.get('s'+n,null);if(c&&c.length){Q[n]=QF[n]=c;return c}const m=await import(CDN+n+'.json/+esm');const v=m.default.verses.map(x=>x.text);Q[n]=QF[n]=v;store.set('s'+n,v);return v}
+function applyRange(n,a,b){for(const k in QF)Q[k]=QF[k];for(const k in OFFS)delete OFFS[k];if(n&&QF[n]&&(a>0||b<QF[n].length)){Q[n]=QF[n].slice(a,b);OFFS[n]=a}}
 let allLoaded=null;const loadAll=()=>allLoaded||(allLoaded=Promise.allSettled(ALL.map(loadSurah)));
 
 /* ========== text helpers ========== */
@@ -578,7 +702,7 @@ function poolOf(n){let p=Q[n]||[];for(let d=1;p.length<8&&d<6;d++){if(Q[n+d])p=p
 const O=(t,ok,q)=>({t,h:esc(t),ok:ok?1:0});
 function buildNext(n,i,prev=false){const A=Q[n],tgt=prev?A[i-1]:A[i+1];
  const others=distinctOthers(cut(tgt),poolOf(n).filter(x=>x!==tgt&&x!==A[i]).map(x=>cut(x)),2);
- return{head:`<p class="ask-t">${prev?'ما الآية التي قبل هذه؟':'ما الآية التالية؟'} <small>سورة ${NAMES[n]}</small></p><div class="q" style="text-align:center">${esc(cut(A[i],16))} <span class="ayno"><span>${AR(i+1)}</span></span></div>`,opts:shuf([O(cut(tgt),1),...others.map(o=>O(o))]),cls:'sm'}}
+ return{head:`<p class="ask-t">${prev?'ما الآية التي قبل هذه؟':'ما الآية التالية؟'} <small>سورة ${NAMES[n]}</small></p><div class="q" style="text-align:center">${esc(cut(A[i],16))} <span class="ayno"><span>${AR(i+1+(OFFS[n]||0))}</span></span></div>`,opts:shuf([O(cut(tgt),1),...others.map(o=>O(o))]),cls:'sm'}}
 function goodWordIdx(w){const c=w.map((x,i)=>[x,i]).filter(([x])=>bare(x).length>=3);return c.length?rnd(c)[1]:-1}
 function buildComplete(n,ayah){const A=Q[n];const cand=A.filter(a=>words(a).length>=3);const t=ayah||rnd(cand.length?cand:A);const w=words(t);
  let j=goodWordIdx(w);if(j<0)j=w.length-1;let s=0,e=w.length;if(w.length>14){s=Math.max(0,j-6);e=Math.min(w.length,j+7)}
@@ -594,7 +718,7 @@ function halves(t,max=8){const w=words(t).slice(0,max),m=Math.ceil(w.length/2);r
 /* ========== content sources ========== */
 function quranSrc(sel,juzMode){
  const S=juzMode?(sel?inJuz(sel):ALL):[sel];const pickN=()=>juzMode?rnd(S):sel;
- return{quran:true,S,n:juzMode?null:sel,juz:juzMode,
+ return{quran:true,S,n:juzMode?null:sel,juz:juzMode,off:juzMode?0:(OFFS[sel]||0),
   mcq(){const n=pickN(),A=Q[n];const k=rnd(juzMode?['next','complete','guess']:['next','complete']);if(k==='guess'&&S.length>3)return buildGuess(S);if(k==='next'&&A.length>1)return buildNext(n,Math.random()*(A.length-1)|0);return buildComplete(n)},
   mcqS(){if(juzMode&&S.length>3&&Math.random()<.35)return buildGuess(S);return buildComplete(pickN())},
   tf(){const n=pickN(),A=Q[n];if(juzMode&&S.length>3&&Math.random()<.4){const t=rnd(A),ok=Math.random()<.5,m=ok?n:rnd(S.filter(x=>x!==n));return{head:`<p class="ask-t">هل هذه الآية من سورة ${NAMES[m]}؟</p><div class="q" style="text-align:center">${esc(cut(t,14))}</div>`,ok}}
@@ -653,7 +777,7 @@ async function gBalloon(ctx,src){const R=4;ctx.total=R;const C=['#22ACC4','#F370
 async function gOrder(ctx,src){const L=src.lines(),R=3;ctx.total=R;
  for(let s=0;s<R;s++){if(ctx.dead)return;ctx.prog(s,R);const K=Math.min(4,L.length),st=Math.random()*(L.length-K+1)|0;const seq=L.slice(st,st+K).map(a=>cut(a,10));let k=0,perfect=true;
   ctx.box.innerHTML=`<div class="panel"><p class="ask-t">اضغط على الآيات بترتيبها الصحيح</p><div class="opts">${shuf(seq.map((t,i)=>({t,i}))).map(o=>`<button class="opt sm" data-i="${o.i}">${esc(o.t)}</button>`).join('')}</div></div>`;
-  await new Promise(res=>$$('.opt',ctx.box).forEach(b=>b.onclick=()=>{if(b.disabled)return;if(seq[+b.dataset.i]===seq[k]){b.disabled=true;b.classList.add('good');b.insertAdjacentHTML('afterbegin',`<span class="ayno"><span>${AR(src.quran?st+k+1:k+1)}</span></span>`);sfx.step();if(++k===K)res()}else{perfect=false;shake(b);oops()}}));
+  await new Promise(res=>$$('.opt',ctx.box).forEach(b=>b.onclick=()=>{if(b.disabled)return;if(seq[+b.dataset.i]===seq[k]){b.disabled=true;b.classList.add('good');b.insertAdjacentHTML('afterbegin',`<span class="ayno"><span>${AR(st+k+1+(src.off||0))}</span></span>`);sfx.step();if(++k===K)res()}else{perfect=false;shake(b);oops()}}));
   if(perfect)ctx.right($('.panel',ctx.box));else sfx.ok();await sleep(1100)}ctx.end()}
 function uniqPairs(src,k){const out=[],seen=new Set();for(let i=0;i<k*6&&out.length<k;i++){const p=src.pair();const key=p[0]+'|'+p[1];if(!seen.has(key)&&!out.some(x=>x[1]===p[1]||x[0]===p[0])){seen.add(key);out.push(p)}}return out}
 async function gMatch(ctx,src){const R=3;ctx.total=R;
@@ -693,8 +817,8 @@ function hideRender(w,hid,peek,style){return w.map((x,k)=>{if(!hid.has(k))return
 function ring(c,T){const p=2*Math.PI*54;return`<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="#E3F5F9" stroke-width="12"/><circle cx="60" cy="60" r="54" fill="none" stroke="#F37045" stroke-width="12" stroke-linecap="round" stroke-dasharray="${p}" stroke-dashoffset="${p*(1-Math.min(1,c/T))}"/></svg><b>${AR(c)}/${AR(T)}</b>`}
 function gRepeat(ctx,src,startAyah=0){const A=src.lines();let i=Math.min(startAyah,A.length-1),c=0,T=store.get('repT',5),order=[],peek=new Set();
  const draw=()=>{const w=words(A[i]);if(order.length!==w.length)order=shuf(w.map((_,k)=>k));const hid=new Set(order.slice(0,Math.floor(w.length*Math.min(1,c/T))));ctx.prog(i,A.length);
-  ctx.box.innerHTML=`<div class="panel"><div class="tabs" id="ays">${A.map((_,k)=>`<button class="tab ${k===i?'on':''}" data-a="${k}">${AR(k+1)}</button>`).join('')}</div>
-  <div class="words" style="margin:14px 0">${hideRender(w,hid,peek)}<span class="ayno"><span>${AR(i+1)}</span></span></div><p class="hint">اقرأ وكرّر بصوت مسموع، ومع كل مرة تختفي كلمات. اضغط الكلمة المخفية لو نسيتها</p>
+  ctx.box.innerHTML=`<div class="panel"><div class="tabs" id="ays">${A.map((_,k)=>`<button class="tab ${k===i?'on':''}" data-a="${k}">${AR(k+1+(src.off||0))}</button>`).join('')}</div>
+  <div class="words" style="margin:14px 0">${hideRender(w,hid,peek)}<span class="ayno"><span>${AR(i+1+(src.off||0))}</span></span></div><p class="hint">اقرأ وكرّر بصوت مسموع، ومع كل مرة تختفي كلمات. اضغط الكلمة المخفية لو نسيتها</p>
   <button class="counter" id="cnt" aria-label="كرّرت">${ring(c,T)}</button>
   <div class="row"><button class="btn o" id="rep">كرّرتها</button><button class="btn g" id="rst">من الأول</button><button class="btn g" id="nx">التالية</button></div>
   <div class="row" style="margin-top:10px"><span class="hint" style="margin:0">عدد التكرار:</span>${[3,5,7,10].map(v=>`<button class="tab ${v===T?'on':''}" data-t="${v}">${AR(v)}</button>`).join('')}</div></div>`;
@@ -710,14 +834,14 @@ function gRepeat(ctx,src,startAyah=0){const A=src.lines();let i=Math.min(startAy
 function gChain(ctx,src){const A=src.lines();let st=0,N=Math.min(4,A.length),steps=[],si=0,c=0,peek=new Set(),order=[];
  const STY=['w','e','w','e','w'];
  const build=()=>{steps=[];for(let i=0;i<N;i++){steps.push({a:[st+i],R:5,s:STY[i%5]});if(i>0)steps.push({a:Array.from({length:i+1},(_,k)=>st+k),R:3,s:'f'})}si=0;c=0;order=[];peek.clear()};
- const lab=s=>s.a.length===1?AR(s.a[0]+1):AR(s.a[0]+1)+'-'+AR(s.a[s.a.length-1]+1);
+ const O_=src.off||0;const lab=s=>s.a.length===1?AR(s.a[0]+1+O_):AR(s.a[0]+1+O_)+'-'+AR(s.a[s.a.length-1]+1+O_);
  const draw=()=>{const S=steps[si];const w=[],marks=[];S.a.forEach(i=>{words(A[i]).forEach(x=>w.push(x));marks.push(w.length)});
   if(order.length!==w.length)order=shuf(w.map((_,k)=>k));const nh=Math.floor(w.length*Math.min(1,c/S.R));const hid=new Set(S.s==='e'?w.map((_,k)=>k).slice(w.length-nh):order.slice(0,nh));
   ctx.prog(si,steps.length);
-  let html='',k0=0;S.a.forEach((ai,j)=>{const ws=w.slice(k0,marks[j]);html+=hideRender(ws,new Set([...hid].filter(k=>k>=k0&&k<marks[j]).map(k=>k-k0)),new Set([...peek].filter(k=>k>=k0&&k<marks[j]).map(k=>k-k0)),S.s).replace(/data-k="(\d+)"/g,(m,d)=>`data-k="${+d+k0}"`)+`<span class="ayno"><span>${AR(ai+1)}</span></span>`;k0=marks[j]});
-  ctx.box.innerHTML=`<div class="panel"><div class="row" style="justify-content:space-between"><label class="field" style="flex:1">من آية<select id="cst">${A.map((_,k)=>`<option value="${k}" ${k===st?'selected':''}>${AR(k+1)}</option>`).join('')}</select></label><label class="field" style="flex:1">عدد الآيات<select id="cn">${[2,3,4,5,6].filter(v=>v<=A.length).map(v=>`<option value="${v}" ${v===N?'selected':''}>${AR(v)}</option>`).join('')}</select></label></div>
+  let html='',k0=0;S.a.forEach((ai,j)=>{const ws=w.slice(k0,marks[j]);html+=hideRender(ws,new Set([...hid].filter(k=>k>=k0&&k<marks[j]).map(k=>k-k0)),new Set([...peek].filter(k=>k>=k0&&k<marks[j]).map(k=>k-k0)),S.s).replace(/data-k="(\d+)"/g,(m,d)=>`data-k="${+d+k0}"`)+`<span class="ayno"><span>${AR(ai+1+O_)}</span></span>`;k0=marks[j]});
+  ctx.box.innerHTML=`<div class="panel"><div class="row" style="justify-content:space-between"><label class="field" style="flex:1">من آية<select id="cst">${A.map((_,k)=>`<option value="${k}" ${k===st?'selected':''}>${AR(k+1+O_)}</option>`).join('')}</select></label><label class="field" style="flex:1">عدد الآيات<select id="cn">${[2,3,4,5,6].filter(v=>v<=A.length).map(v=>`<option value="${v}" ${v===N?'selected':''}>${AR(v)}</option>`).join('')}</select></label></div>
   <div class="path" id="path">${steps.map((s,k)=>`<span class="${k<si?'done':k===si?'on':''}">${lab(s)}</span>`).join('')}</div>
-  <p class="ask-t" style="text-align:center">${S.a.length===1?'كرّر الآية '+AR(S.a[0]+1)+' — '+AR(S.R)+' مرات':'اربط الآيات '+lab(S)+' مع بعض — '+AR(S.R)+' مرات'}</p>
+  <p class="ask-t" style="text-align:center">${S.a.length===1?'كرّر الآية '+AR(S.a[0]+1+O_)+' — '+AR(S.R)+' مرات':'اربط الآيات '+lab(S)+' مع بعض — '+AR(S.R)+' مرات'}</p>
   <div class="words" style="margin:10px 0">${html}</div><p class="hint">${S.s==='f'?'أول حرف بس من كل كلمة… سمّع من حفظك':S.s==='e'?'الكلمات بتختفي من آخر الآية':'كلمات بتختفي مع كل تكرار'} — اضغط على الكلمة لو نسيتها</p>
   <button class="counter" id="cnt" aria-label="كرّرت">${ring(c,S.R)}</button><div class="row"><button class="btn o" id="rep">كرّرتها</button><button class="btn g" id="pv">السابقة</button><button class="btn g" id="nx">التالية</button></div></div>`;
   $('#cst').onchange=e=>{st=+e.target.value;N=Math.min(N,A.length-st);build();draw()};
@@ -947,10 +1071,10 @@ async function gSlide(ctx,src){const R=3;ctx.total=R;
 /* 23. recitation with the teacher */
 async function gTasmee(ctx,src){const A=src.lines().slice(0,15);const N=A.length;ctx.total=N;let sum=0;const rep=[];
  for(let i=0;i<N;i++){if(ctx.dead)return;ctx.prog(i,N);const w=words(A[i]);
-  ctx.box.innerHTML=`<div class="panel"><p class="ask-t">سمّع الآية رقم ${AR(i+1)} من حفظك <small>(${AR(i+1)} من ${AR(N)})</small></p><div class="words" style="margin:12px 0">${i>0?`<span class="wd" style="font-size:18px;opacity:.6">${esc(cut(A[i-1],5).split(' ').slice(-3).join(' '))} …</span>`:''}${w.map(x=>`<span class="wd hid">${esc(x)}</span>`).join('')}</div><div class="row"><button class="btn" id="rv">اكشف الآية</button></div><div class="row hide" id="mk" style="margin-top:10px"><button class="btn" data-v="1">متقن ✓</button><button class="btn g" data-v=".5">تنبيه بسيط</button><button class="btn o" data-v="0">محتاج مراجعة</button></div></div>`;
+  ctx.box.innerHTML=`<div class="panel"><p class="ask-t">سمّع الآية رقم ${AR(i+1+(src.off||0))} من حفظك <small>(${AR(i+1)} من ${AR(N)})</small></p><div class="words" style="margin:12px 0">${i>0?`<span class="wd" style="font-size:18px;opacity:.6">${esc(cut(A[i-1],5).split(' ').slice(-3).join(' '))} …</span>`:''}${w.map(x=>`<span class="wd hid">${esc(x)}</span>`).join('')}</div><div class="row"><button class="btn" id="rv">اكشف الآية</button></div><div class="row hide" id="mk" style="margin-top:10px"><button class="btn" data-v="1">متقن ✓</button><button class="btn g" data-v=".5">تنبيه بسيط</button><button class="btn o" data-v="0">محتاج مراجعة</button></div></div>`;
   $('#rv').onclick=()=>{$$('.wd.hid',ctx.box).forEach(x=>x.classList.remove('hid'));$('#mk').classList.remove('hide');$('#rv').classList.add('hide');sfx.whoosh()};
   const v=await new Promise(res=>$$('#mk button',ctx.box).forEach(b=>b.onclick=()=>res(+b.dataset.v)));sum+=v;rep.push(v);if(v===1){cheerSmall($('#mk'))}else if(v>0){sfx.ok()}else{oops()}await sleep(700)}
- ctx.score=Math.round(sum);const weak=rep.map((v,i)=>v<1?AR(i+1):null).filter(Boolean);ctx.end(weak.length?'راجع الآيات: '+weak.join('، '):'تسميع متقن!')}
+ ctx.score=Math.round(sum);const weak=rep.map((v,i)=>v<1?AR(i+1+(src.off||0)):null).filter(Boolean);ctx.end(weak.length?'راجع الآيات: '+weak.join('، '):'تسميع متقن!')}
 
 /* 24. what disappeared? */
 async function gMissing(ctx,src){const R=6;ctx.total=R;
@@ -962,7 +1086,7 @@ async function gMissing(ctx,src){const R=6;ctx.total=R;
 
 /* 25. ayah number */
 const gAyahNum=(ctx,src)=>quizLoop(ctx,8,()=>{const n=src.n||rnd(src.S),A=Q[n],i=Math.random()*A.length|0;const nums=new Set([i+1]);for(let d=1;nums.size<Math.min(4,A.length)&&d<A.length+2;d++){if(i+1+d<=A.length)nums.add(i+1+d);if(nums.size<Math.min(4,A.length)&&i+1-d>=1)nums.add(i+1-d)}
- return{head:`<p class="ask-t">ما رقم هذه الآية في سورة ${NAMES[n]}؟</p><div class="q" style="text-align:center">${esc(cut(A[i],14))}</div>`,opts:shuf([...nums].map(v=>({t:String(v),h:'الآية '+AR(v),ok:v===i+1?1:0}))),cls:'f'}});
+ return{head:`<p class="ask-t">ما رقم هذه الآية في سورة ${NAMES[n]}؟</p><div class="q" style="text-align:center">${esc(cut(A[i],14))}</div>`,opts:shuf([...nums].map(v=>({t:String(v),h:'الآية '+AR(v+(OFFS[n]||0)),ok:v===i+1?1:0}))),cls:'f'}});
 
 /* 26. flash memory grid */
 async function gFlashGrid(ctx,src){const R=4;ctx.total=R;
@@ -992,6 +1116,149 @@ async function gXO(ctx,src){const b=Array(9).fill('');let turn='X';const TN={X:'
   const r=await choice(ctx.box,src.mcq(),`<p class="ask-t" style="text-align:center">${TN[turn]}</p>`);if(r.first){b[i]=turn;cheerSmall(r.el)}else sfx.ok();await sleep(900);
   const L=LINES.find(L=>L.every(k=>b[k]&&b[k]===b[L[0]]));if(L)win=b[L[0]];turn=turn==='X'?'O':'X'}
  ctx.teams(win?TN[win]+' فاز!':'تعادل! أحسنتم')}
+
+/* ========== ركن الألعاب: محرّك المغامرات ========== */
+const ADV_THEMES={
+ widen:{s0:['#1b2230','#2c3a4f'],s1:['#8fd8f7','#eaf8ff'],dark:1,walls:1,sun:'rise'},
+ dawn:{s0:['#0e1a38','#2a3b6b'],s1:['#8fd8f7','#ffe6b8'],stars:'fade',sun:'rise'},
+ stars:{s0:['#0b1530','#1c2d5c'],s1:['#132552','#3a5aa6'],stars:'grow',moon:1},
+ grow:{s0:['#a9dff2','#eaf8ff'],s1:['#8fd8f7','#eaf8ff'],sun:'fixed',grow:1},
+ time:{s0:['#8fd8f7','#eaf8ff'],s1:['#f3a35c','#ffe1b3'],sun:'move'},
+ calm:{s0:['#6b6f7a','#a8adb8'],s1:['#8fd8f7','#eaf8ff'],shake:1,sun:'fixed'},
+ birds:{s0:['#8fd8f7','#eaf8ff'],s1:['#8fd8f7','#eaf8ff'],birds:1,sun:'fixed'},
+ caravan:{s0:['#f7c98b','#fde9c4'],s1:['#8fd8f7','#fde9c4'],desert:1,sun:'fixed'},
+ shield:{s0:['#2a3b6b','#6c86b8'],s1:['#8fd8f7','#eaf8ff'],shield:1,sun:'rise'},
+ day:{s0:['#8fd8f7','#eaf8ff'],s1:['#8fd8f7','#eaf8ff'],sun:'fixed'}
+};
+const ADV_MODES={run:'مغامرة الحلقة',boat:'رحلة القارب',climb:'تسلّق الجبل',bike:'مشوار في الحارة'};
+const hexMix=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return'#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('')};
+function kidSVG(g){const skin='#C98B5E',hair='#3b2618';
+ if(g==='girl')return`<g class="kid"><g class="lg l"><rect x="-9" y="-26" width="7" height="26" rx="3.5" fill="#6b4a33"/></g><g class="lg r"><rect x="2" y="-26" width="7" height="26" rx="3.5" fill="#6b4a33"/></g><ellipse cx="-6" cy="0" rx="7" ry="3.2" fill="#b0463c"/><ellipse cx="6" cy="0" rx="7" ry="3.2" fill="#b0463c"/><path d="M-18 -20L-12 -66Q0 -72 12 -66L18 -20Z" fill="#E87D8E"/><path d="M-15 -34h30" stroke="#fff" stroke-width="3" opacity=".7"/><rect x="-22" y="-62" width="7" height="24" rx="3.5" fill="#E87D8E" transform="rotate(14 -18 -60)"/><rect x="15" y="-62" width="7" height="24" rx="3.5" fill="#E87D8E" transform="rotate(-14 18 -60)"/><circle cx="0" cy="-79" r="17" fill="#F4C542"/><path d="M-17 -79q0 22 17 22q17 0 17-22v12q-17 14-34 0z" fill="#F4C542"/><circle cx="0" cy="-78" r="11" fill="${skin}"/><circle cx="-4" cy="-80" r="1.8" fill="#222"/><circle cx="4" cy="-80" r="1.8" fill="#222"/><path d="M-4 -74q4 3 8 0" stroke="#222" fill="none" stroke-width="1.6" stroke-linecap="round"/><circle cx="-7" cy="-75" r="2" fill="#f39a8a" opacity=".7"/><circle cx="7" cy="-75" r="2" fill="#f39a8a" opacity=".7"/></g>`;
+ return`<g class="kid"><g class="lg l"><rect x="-9" y="-26" width="7" height="26" rx="3.5" fill="${skin}"/></g><g class="lg r"><rect x="2" y="-26" width="7" height="26" rx="3.5" fill="${skin}"/></g><ellipse cx="-6" cy="0" rx="7" ry="3.2" fill="#7a4a2a"/><ellipse cx="6" cy="0" rx="7" ry="3.2" fill="#7a4a2a"/><path d="M-17 -18L-12 -66Q0 -72 12 -66L17 -18Z" fill="#EAF2F7"/><path d="M0 -68v18" stroke="#9bb3c2" stroke-width="2"/><rect x="-22" y="-62" width="7" height="24" rx="3.5" fill="#EAF2F7" transform="rotate(14 -18 -60)"/><rect x="15" y="-62" width="7" height="24" rx="3.5" fill="#EAF2F7" transform="rotate(-14 18 -60)"/><circle cx="0" cy="-78" r="13" fill="${skin}"/><path d="M-13 -81a13 12 0 0 1 26 0z" fill="#fff"/><path d="M-13 -81h26" stroke="#d9e2e8" stroke-width="2"/><circle cx="-4.5" cy="-77" r="1.9" fill="#222"/><circle cx="4.5" cy="-77" r="1.9" fill="#222"/><path d="M-4 -71q4 3 8 0" stroke="#222" fill="none" stroke-width="1.6" stroke-linecap="round"/><circle cx="-8" cy="-72" r="2" fill="#e8856b" opacity=".6"/><circle cx="8" cy="-72" r="2" fill="#e8856b" opacity=".6"/></g>`}
+const BIKE='<g class="bike"><circle cx="-24" cy="-13" r="13" fill="none" stroke="#222" stroke-width="3.5"/><circle cx="24" cy="-13" r="13" fill="none" stroke="#222" stroke-width="3.5"/><path d="M-24 -13L-4 -36L18 -36L24 -13M-4 -36L0 -13L-24 -13M18 -36l3-8h8" stroke="#e05a3a" stroke-width="4" fill="none" stroke-linejoin="round"/></g>';
+const BOAT='<g class="boatg"><path d="M-46 -8h92l-14 20h-64z" fill="#9b5a2e"/><path d="M-46 -8h92" stroke="#6b3a1a" stroke-width="4"/><path d="M8 -8V-96" stroke="#5b3a22" stroke-width="3"/><path d="M10 -94Q40 -60 12 -14z" fill="#fff8e8" stroke="#d8cdb8"/></g>';
+const PALM=(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0q-4-40 4-80" stroke="#8a5a32" stroke-width="7" fill="none"/><g fill="#3d9a54"><path d="M4-80q-30-6-44 12q24-14 44-8z"/><path d="M4-80q30-6 44 12q-24-14-44-8z"/><path d="M4-80q-18-24-40-22q22 4 40 26z"/><path d="M4-80q18-24 40-22q-22 4-40 26z"/></g></g>`;
+const PYR=(x,y,s)=>`<path d="M${x-s} ${y}L${x} ${y-s*.9}L${x+s} ${y}Z" fill="#e2bf7d"/><path d="M${x} ${y-s*.9}L${x+s} ${y}H${x+s*.15}Z" fill="#c89f5b"/>`;
+const HOUSE=(x,y,w,h,c)=>`<g><rect x="${x}" y="${y-h}" width="${w}" height="${h}" fill="${c}"/><rect x="${x+w*.2}" y="${y-h+16}" width="${w*.25}" height="22" rx="3" fill="#6b4a2e"/><path d="M${x+w*.2} ${y-h+20}h${w*.25}M${x+w*.2} ${y-h+27}h${w*.25}M${x+w*.2} ${y-h+34}h${w*.25}" stroke="#a37a52" stroke-width="2"/><rect x="${x+w*.58}" y="${y-h+16}" width="${w*.22}" height="22" rx="10" fill="#8fd0e8"/><rect x="${x+w*.35}" y="${y-36}" width="${w*.3}" height="36" rx="${w*.15}" fill="#7a5132"/></g>`;
+const MINARET=(x,y)=>`<g><rect x="${x-9}" y="${y-170}" width="18" height="170" fill="#f3e6cf"/><rect x="${x-14}" y="${y-120}" width="28" height="8" rx="3" fill="#d9c2a0"/><path d="M${x-9} ${y-170}q9-26 18 0z" fill="#3d9a54"/><path d="M${x} ${y-196}v-10" stroke="#e0b84a" stroke-width="3"/></g>`;
+function advWorld(mode,N,desert){
+ const D=300,X0=520+N*D;const pts=[];let w='',par='',top='';
+ const gT=desert?'#e8c27a':'#7cc36a',gB=desert?'#c9974e':'#a86b3c';
+ if(mode==='climb'){const Y0=330+N*170;for(let i=0;i<=N;i++)pts.push({x:i%2?640:360,y:Y0-i*170});
+  w+=`<path d="M-400 ${Y0+300}L500 ${-260}L1400 ${Y0+300}Z" fill="#9c7a55"/><path d="M-200 ${Y0+300}L500 ${-120}L1200 ${Y0+300}Z" fill="#b38f66"/><path d="M430 -190L500 -260L570 -190Z" fill="#fff"/>`;
+  w+=`<path d="M${pts.map(p=>p.x+' '+p.y).join('L')}" stroke="#7a5a3a" stroke-width="10" fill="none" stroke-dasharray="2 14" stroke-linecap="round"/>`;
+  pts.forEach((p,i)=>{w+=`<ellipse cx="${p.x}" cy="${p.y+6}" rx="70" ry="16" fill="#8a6a48"/><ellipse cx="${p.x}" cy="${p.y+2}" rx="62" ry="10" fill="${gT}"/>`});
+  for(let y=-200;y<500;y+=90)par+=`<g opacity=".55"><ellipse cx="${(y*37)%900+60}" cy="${y}" rx="60" ry="18" fill="#fff"/></g>`;
+ }else{for(let i=0;i<=N;i++)pts.push({x:X0-i*D,y:mode==='boat'?322:330});
+  if(mode==='boat'){w+=`<rect x="-300" y="300" width="${X0+1200}" height="200" fill="#3a9ad9"/><g class="waves">${Array.from({length:Math.ceil((X0+1200)/120)},(_,k)=>`<path d="M${k*120-300} 312q30-14 60 0t60 0" stroke="#bfe8ff" stroke-width="4" fill="none"/>`).join('')}</g>`;
+   par+=`<rect x="-200" y="250" width="${1600+X0*.3}" height="60" fill="${gT}"/>`;for(let x=-100;x<1300+X0*.3;x+=170)par+=PALM(x,262,.8);for(let x=60;x<1300+X0*.3;x+=520)par+=PYR(x,250,70)}
+  else{w+=`<rect x="-300" y="${330}" width="${X0+1200}" height="200" fill="${mode==='bike'?'#6d7178':gB}"/>`+(mode==='bike'?`<path d="M-300 375H${X0+900}" stroke="#f1d36b" stroke-width="5" stroke-dasharray="40 30"/><rect x="-300" y="322" width="${X0+1200}" height="10" fill="#c9c2b5"/>`:`<rect x="-300" y="326" width="${X0+1200}" height="16" fill="${gT}"/>`);
+   if(mode==='bike'){let x=-100;while(x<1300+X0*.3){const w2=110+((x*7)%60);par+=HOUSE(x,322,w2,130+((x*3)%70),['#f1d7b3','#e9c99a','#f4e2c6','#e2b98f'][((x/10)|0)%4]);x+=w2+8;if(((x/10)|0)%5===0){par+=MINARET(x+20,322);x+=50}}}
+   else{for(let x=-100;x<1300+X0*.3;x+=460)par+=PYR(x+120,330,desert?110:80);for(let x=0;x<1300+X0*.3;x+=210)par+=PALM(x,330,.9)}}
+  pts.forEach((p,i)=>{if(i===0||i===N)return;const m=p.x+D/2;if(mode==='run'){const k=i%3;w+=k===0?`<rect x="${m-40}" y="326" width="80" height="120" fill="#3a9ad9"/><path d="M${m-40} 336q20-8 40 0t40 0" stroke="#bfe8ff" stroke-width="3" fill="none"/>`:k===1?`<path d="M${m-30} 330q4-34 30-36q28 2 30 36z" fill="#8a8f98"/><path d="M${m-12} 304q8-6 16 0" stroke="#b4b9c2" stroke-width="4" fill="none"/>`:`<g fill="#2f8a4a"><circle cx="${m-18}" cy="318" r="16"/><circle cx="${m+2}" cy="310" r="20"/><circle cx="${m+22}" cy="318" r="15"/></g>`}
+   else if(mode==='bike')w+=`<path d="M${m-12} 330L${m} 300L${m+12} 330Z" fill="#f08a24"/><path d="M${m-8} 318h16" stroke="#fff" stroke-width="4"/>`;
+   else w+=`<path d="M${m-26} 330q6-26 26-28q22 2 26 28z" fill="#7a7f88"/>`})}
+ pts.forEach((p,i)=>{if(i===0)return;const last=i===N;
+  if(last){w+=mode==='climb'?`<g transform="translate(${p.x} ${p.y})"><path d="M0 0V-120" stroke="#5b3a22" stroke-width="5"/><path d="M2 -118h60l-14 16 14 16H2z" fill="#f2a12e"/></g>`:`<g transform="translate(${p.x-90} ${p.y})"><rect x="-10" y="-150" width="120" height="150" fill="#f3e6cf"/><path d="M-10 -150q60-70 120 0z" fill="#3d9a54"/><path d="M24 0v-70a26 26 0 0 1 52 0V0z" fill="#7a5132"/><path d="M50 -220v-14" stroke="#e0b84a" stroke-width="4"/><circle cx="50" cy="-238" r="5" fill="#e0b84a"/></g>`;return}
+  const num=`<text x="0" y="-62" fill="#fff" font-size="18" font-weight="800" text-anchor="middle" font-family="Noto Kufi Arabic">${AR(i)}</text>`;
+  if(mode==='boat')w+=`<g transform="translate(${p.x-60} 318)"><path d="M-14 0h28l-6-44h-16z" fill="#f2a12e"/><rect x="-10" y="-30" width="20" height="8" fill="#fff"/><rect x="-16" y="-84" width="32" height="28" rx="6" fill="#0e6e80"/>${num.replace('-62','-64')}</g>`;
+  else if(mode==='climb')w+=`<g transform="translate(${p.x+50} ${p.y})"><path d="M0 0V-70" stroke="#5b3a22" stroke-width="4"/><path d="M0 -70h34l-8 10 8 10H0z" fill="#9aa3ad" class="flagc"/><rect x="-20" y="-104" width="40" height="28" rx="6" fill="#0e6e80"/>${num.replace('-62','-84')}</g>`;
+  else w+=`<g transform="translate(${p.x-60} ${p.y})"><path d="M0 0V-46" stroke="#6b4a2e" stroke-width="5"/><rect x="-20" y="-80" width="40" height="30" rx="6" fill="#0e6e80"/>${num}</g>`;
+  w+=`<g class="tok" data-i="${i}" transform="translate(${p.x} ${mode==='climb'?p.y-150:200})"><g class="tokin"><rect x="-22" y="-22" width="44" height="44" rx="8" fill="#f2b632" stroke="#b67a12" stroke-width="3"/><text x="0" y="9" fill="#fff" font-size="28" font-weight="800" text-anchor="middle" font-family="Noto Kufi Arabic">؟</text></g></g>`;
+  w+=`<g class="pl" data-i="${i}" transform="translate(${p.x+70} ${mode==='climb'?p.y:mode==='boat'?262:330})"><g class="plin">${mode==='boat'?'':`<path d="M0 0v-26" stroke="#3d8a4a" stroke-width="4"/><circle cx="0" cy="-30" r="9" fill="#ff8fb1"/><circle cx="0" cy="-30" r="4" fill="#ffd36b"/><path d="M0 -12q-12-4-14-14q12 2 14 14zM0 -16q12-4 14-14q-12 2-14 14z" fill="#3d9a54"/>`}</g></g>`});
+ return{pts,w,par,X0}}
+function advStations(src){const out=[];
+ if(src.quran&&src.n){const n=src.n,A=Q[n],cur=ADV_QUESTIONS[n]||{},words=cur.words||[];
+  const tf=()=>{const c=buildComplete(n),w=words_(c.ayah);const ok=Math.random()<.5;if(!ok)w[c.j]=c.opts.find(o=>!o.ok).t;const s=Math.max(0,c.j-7),e=Math.min(w.length,c.j+8);return{t:'tf',head:`<p class="advp">هل الآية مكتوبة صح؟</p><div class="q advayah">${s?'… ':''}${esc(w.slice(s,e).join(' '))}${e<w.length?' …':''}</div>`,ok,hint:ok?'قارن كلمة كلمة بحفظك… يمكن تكون سليمة فعلًا':'ركّز: في كلمة واحدة مش في مكانها'}};
+  const mk={complete(){const c=buildComplete(n);return{t:'mcq',head:c.head.replace('اختر الكلمة الناقصة','أكمل الآية'),opts:c.opts,cls:'',hint:'أول حرف في الكلمة: «'+(letters(ansOf(c))[0]||'')+'»'}},
+   next(){if(A.length<2)return mk.complete();const i=Math.random()*(A.length-1)|0;const q=buildNext(n,i);return{t:'mcq',head:q.head,opts:q.opts,cls:'sm',hint:'الآية التالية تبدأ بـ «'+words_(A[i+1])[0]+'»'}},
+   order(){const t=pickAyat(A,3,7,1)[0];return{t:'order',w:words_(t).slice(0,7)}},tf};
+  const kinds=['complete','order','tf','next','complete','order','next','tf','complete','order','next','tf','complete','order'];
+  const cq=(cur.questions||[]).map(q=>q.type==='tf'?{t:'tf',head:`<p class="advp">${esc(q.q)}</p>`,ok:!!q.answer,hint:q.hint||'فكّر في معنى السورة'}:{t:'mcq',head:`<p class="advp">${esc(q.q)}</p>`,opts:shuf(q.options.map((o,i)=>({t:o,h:esc(o),ok:i===q.answer?1:0}))),cls:'f',hint:q.hint||'فكّر مرة تانية'});
+  const ws=shuf(words);const ms=[];for(let k=0;k+3<=ws.length&&ms.length<2;k+=3)ms.push({t:'match',pairs:ws.slice(k,k+3)});
+  const special=[...cq,...ms];const N=Math.max(10,Math.min(15,10+Math.ceil(special.length/2)));
+  const base=kinds.slice(0,N-special.length).map(k=>mk[k]());const step=special.length?Math.max(1,Math.floor(base.length/(special.length+1))):1;
+  let si=0;base.forEach((b,i)=>{out.push(b);if((i+1)%step===0&&si<special.length)out.push(special[si++])});while(si<special.length)out.push(special[si++]);
+ }else{const seq=['mcq','tf','order','mcq','match','mcq','tf','order','mcq','match','tf','mcq'];
+  seq.forEach(k=>{if(k==='mcq'){const q=src.mcq();out.push({t:'mcq',head:q.head,opts:q.opts,cls:q.cls,hint:'فكّر مرة تانية واستبعد الإجابة الغلط'})}
+   else if(k==='tf'){const q=src.tf();out.push({t:'tf',head:q.head,ok:q.ok,hint:'اقرأ العبارة كويس مرة تانية'})}
+   else if(k==='order'){const w=src.seq().w.slice(0,7);out.push(w.length>=2?{t:'order',w}:(()=>{const q=src.mcq();return{t:'mcq',head:q.head,opts:q.opts,cls:q.cls,hint:'فكّر مرة تانية'}})())}
+   else{const p=uniqPairs(src,3);if(p.length>=2)out.push({t:'match',pairs:p});else{const q=src.mcq();out.push({t:'mcq',head:q.head,opts:q.opts,cls:q.cls,hint:'فكّر مرة تانية'})}}})}
+ return out}
+const words_=t=>words(t);
+const TYPE_AR={mcq:'اختيار',tf:'صح ولا غلط',order:'رتّب كلمات الآية',match:'وصّل الكلمة بمعناها'};
+function advAsk(panel,st,idx,N,stat){return new Promise(res=>{
+ const top=`<div class="advqh"><span class="advtag">المحطة ${AR(idx+1)} من ${AR(N)}</span><span class="advtype">${TYPE_AR[st.t]}</span></div>`;
+ const hintBox='<div class="advhint" hidden></div>';
+ const showHint=(t,el)=>{stat.wrong++;stat.att++;const h=$('.advhint',panel);h.hidden=false;h.innerHTML='<b>تلميح:</b> '+esc(t);sfx.bad();if(el)shake(el)};
+ const ok=el=>{stat.att++;sfx.coin();if(el)el.classList.add('good');setTimeout(res,650)};
+ if(st.t==='mcq'){panel.innerHTML=top+st.head+`<div class="opts ${st.cls==='f'?'two':''}">${st.opts.map((o,i)=>`<button class="opt ${st.cls||''}" data-i="${i}">${o.h}</button>`).join('')}</div>`+hintBox;
+  $$('.opt',panel).forEach(b=>b.onclick=()=>{if(b.disabled)return;if(st.opts[+b.dataset.i].ok){$$('.opt',panel).forEach(x=>x.disabled=true);ok(b)}else{b.disabled=true;b.classList.add('badx');showHint(st.hint,b)}})}
+ else if(st.t==='tf'){panel.innerHTML=top+st.head+`<div class="kopts"><button class="kopt" style="background:var(--teal)" data-v="1">صح ✓</button><button class="kopt" style="background:var(--org)" data-v="0">غلط ✗</button></div>`+hintBox;
+  $$('.kopt',panel).forEach(b=>b.onclick=()=>{if(b.disabled)return;if((b.dataset.v==='1')===st.ok){$$('.kopt',panel).forEach(x=>x.disabled=true);ok(b)}else{b.disabled=true;b.style.opacity=.4;showHint(st.hint,b)}})}
+ else if(st.t==='order'){let k=0;panel.innerHTML=top+`<p class="advp">رتّب كلمات الآية بالضغط عليها بالترتيب</p><div class="built q advayah" id="advb">&nbsp;</div><div class="wchips">${shuf(st.w.map((x,i)=>({x,i}))).map(o=>`<button class="wc" data-b="${esc(bare(o.x))}">${esc(o.x)}</button>`).join('')}</div>`+hintBox;
+  $$('.wc',panel).forEach(b=>b.onclick=()=>{if(b.classList.contains('used'))return;if(b.dataset.b===bare(st.w[k])){sfx.pop();b.classList.add('used');k++;$('#advb').textContent=st.w.slice(0,k).join(' ');if(k===st.w.length)ok($('#advb'))}else showHint('الكلمة اللي بعدها تبدأ بحرف «'+(letters(st.w[k])[0]||'')+'»',b)})}
+ else{let sel=null,done=0;const P=st.pairs;panel.innerHTML=top+`<p class="advp">اضغط الكلمة ثم معناها</p><div class="mcols"><div class="opts" style="margin:0">${P.map((p,i)=>`<button class="opt a f" data-i="${i}">${esc(p[0])}</button>`).join('')}</div><div class="opts" style="margin:0">${shuf(P.map((p,i)=>({p,i}))).map(o=>`<button class="opt b f" data-i="${o.i}">${esc(o.p[1])}</button>`).join('')}</div></div>`+hintBox;
+  $$('.opt.a',panel).forEach(b=>b.onclick=()=>{if(b.disabled)return;sfx.tap();$$('.opt.a',panel).forEach(x=>x.classList.remove('sel'));b.classList.add('sel');sel=b});
+  $$('.opt.b',panel).forEach(b=>b.onclick=()=>{if(b.disabled)return;if(!sel){const h=$('.advhint',panel);h.hidden=false;h.textContent='اختار الكلمة الأول (العمود اليمين)';return}
+   if(b.dataset.i===sel.dataset.i){[b,sel].forEach(x=>{x.disabled=true;x.classList.remove('sel');x.classList.add('good')});sfx.coin();sel=null;if(++done===P.length){stat.att++;setTimeout(res,650)}}
+   else{const p=P[+sel.dataset.i];showHint('معنى «'+p[0]+'» يبدأ بكلمة «'+String(p[1]).split(' ')[0]+'»',b)}})}
+})}
+let advMusicT=0;
+function advMusic(on){clearInterval(advMusicT);if(!on)return;const notes=[523,587,659,784,659,587,523,440,494,523,587,523];let i=0;advMusicT=setInterval(()=>{if(!$('#adv')){clearInterval(advMusicT);return}tone(notes[i%notes.length],.22,'triangle',0,.035);if(i%4===0)tone(notes[i%notes.length]/2,.4,'sine',0,.03);i++},330)}
+function advMedal(stars){return`<svg viewBox="0 0 200 230" class="advmedal"><path d="M60 0h30l20 70H80z" style="fill:var(--teal)"/><path d="M140 0h-30l-20 70h30z" style="fill:var(--org)"/><circle cx="100" cy="135" r="78" fill="#F2B632"/><circle cx="100" cy="135" r="66" fill="#FFD866"/><circle cx="100" cy="135" r="54" fill="#fff"/><use href="#mark" x="64" y="99" width="72" height="72" style="fill:var(--teal)"/>${[0,1,2].map(i=>`<path d="M${70+i*30} 216l7 7-7 7-7-7z" fill="${i<stars?'#F2B632':'#e4e4e4'}"/>`).join('')}</svg>`}
+async function advPlay(ctx,src,mode){
+ ctx.box.innerHTML='<div class="panel"><p style="margin:0">المغامرة مفتوحة على الشاشة كلها.</p></div>';
+ const n=src.n,juz=n?(n>=78?30:n>=67?29:28):30,cur=n?ADV_QUESTIONS[n]:null,tk=(cur&&cur.theme)||ADV_JUZ_THEME[juz]||'day',TH=ADV_THEMES[tk]||ADV_THEMES.day;
+ const A=n?Q[n]:[],off=src.off||0;
+ const pathName=src.custom?'لعبة من المعلم':'مسار '+(juz===30?'جزء عمّ':juz===29?'جزء تبارك':'جزء قد سمع');
+ const episode=src.custom?esc(src.title||''):`سورة ${NAMES[n]} — الآيات ${AR(off+1)}–${AR(off+A.length)}`;
+ let kid=store.get('advKid','boy'),musicOn=store.get('advMusic',true);
+ $('#adv')?.remove();const ov=document.createElement('div');ov.id='adv';document.body.appendChild(ov);rfEl.style.display='none';
+ const close=()=>{advMusic(false);ov.remove();rfEl.style.display=''};ov._stop=close;
+ const startScreen=()=>{advMusic(false);ov.innerHTML=`<div class="advstart"><div class="advcard"><div class="advacad"><svg viewBox="0 0 44 44"><rect width="44" height="44" rx="13" fill="#fff"/><use href="#mark" x="7" y="7" width="30" height="30" style="fill:var(--teal)"/></svg><b>${ACADEMY}</b></div><h2>${ADV_MODES[mode]}</h2>${cur&&cur.title?`<p class="advworld">عالم: ${esc(cur.title)}</p>`:''}<dl><dt>المسار</dt><dd>${pathName}</dd><dt>الحلقة</dt><dd>${episode}</dd><dt>الفئة العمرية</dt><dd>${AGE_GROUP}</dd></dl><p class="advp" style="text-align:center">اختار بطلك:</p><div class="advkids">${['boy','girl'].map(g=>`<button data-k="${g}" class="${g===kid?'on':''}"><svg viewBox="-30 -100 60 106">${kidSVG(g)}</svg><span>${g==='boy'?'بطل':'بطلة'}</span></button>`).join('')}</div><div class="row"><button class="btn o advgo">ابدأ المغامرة</button><button class="btn g advback">رجوع</button></div></div></div>`;
+  $$('.advkids button',ov).forEach(b=>b.onclick=()=>{kid=b.dataset.k;store.set('advKid',kid);sfx.tap();$$('.advkids button',ov).forEach(x=>x.classList.toggle('on',x===b))});
+  $('.advback',ov).onclick=()=>{sfx.exit();close();openGame(ctx.g.id)};$('.advgo',ov).onclick=()=>{sfx.enter();run()}};
+ const run=async()=>{
+  const S=advStations(src),N=S.length;const W=advWorld(mode,N,!!TH.desert);const stat={att:0,wrong:0};let pts=0;
+  ov.innerHTML=`<div class="advgame"><div class="advhud"><button class="advx" aria-label="خروج">✕</button><div class="advbar"><i id="advfill"></i><span id="advcnt">٠ / ${AR(N)}</span></div><span class="advpts" id="advpts">٠ نقطة</span><button class="advt" id="advmus">${musicOn?'الموسيقى: تعمل':'الموسيقى: متوقفة'}</button><button class="advt" id="advsnd">${muted?'الصوت: مكتوم':'الصوت: يعمل'}</button></div>
+  <div class="advscene"><svg id="advsvg" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="advSky" x1="0" y1="0" x2="0" y2="1"><stop id="advS0" offset="0"/><stop id="advS1" offset="1"/></linearGradient><radialGradient id="advVig" cx="${mode==='climb'?.5:.62}" cy=".68" r=".6"><stop offset=".15" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="1"/></radialGradient></defs>
+   <rect width="1000" height="420" fill="url(#advSky)"/><g id="advStars">${Array.from({length:40},(_,k)=>`<circle cx="${(k*137)%1000}" cy="${(k*71)%230}" r="${1+k%3}" fill="#fff"/>`).join('')}</g>
+   <g id="advSun"><circle r="40" fill="${TH.moon?'#f4f1de':'#FFD36B'}"/>${TH.moon?'<circle cx="16" cy="-10" r="34" fill="#132552"/>':'<circle r="54" fill="#FFD36B" opacity=".25"/>'}</g>
+   <g id="advClouds">${[0,1,2,3].map(k=>`<g class="cloud" style="animation-delay:-${k*9}s"><ellipse cx="${k*260}" cy="${60+k%2*40}" rx="56" ry="16" fill="#fff" opacity=".85"/><ellipse cx="${k*260+26}" cy="${50+k%2*40}" rx="30" ry="16" fill="#fff" opacity=".85"/></g>`).join('')}</g>
+   <g id="advPar">${W.par}</g><g id="advWorld"><g id="advShake">${W.w}<g id="advKid"><circle id="advShield" r="60" cy="-50" fill="#ffe9a8" opacity="0"/><g class="kidwrap">${mode==='bike'?BIKE:''}${mode==='boat'?BOAT:''}<g transform="translate(0 ${mode==='bike'?-30:mode==='boat'?-6:0})">${kidSVG(kid)}</g></g></g></g></g>
+   <g id="advBirds"></g><path id="advWalls" fill="#2a2f38"/><rect id="advDark" width="1000" height="420" fill="url(#advVig)" opacity="0" pointer-events="none"/></svg><div class="advbanner" id="advban"></div></div>
+  <div class="advpanel" id="advp"></div></div>`;
+  const svg=$('#advsvg'),world=$('#advWorld'),par=$('#advPar'),kidG=$('#advKid');
+  $('.advx',ov).onclick=()=>{sfx.exit();close();openGame(ctx.g.id)};
+  $('#advmus').onclick=e=>{musicOn=!musicOn;store.set('advMusic',musicOn);advMusic(musicOn&&!muted);e.target.textContent=musicOn?'الموسيقى: تعمل':'الموسيقى: متوقفة'};
+  $('#advsnd').onclick=e=>{muted=!muted;store.set('mute',muted);advMusic(musicOn&&!muted);e.target.textContent=muted?'الصوت: مكتوم':'الصوت: يعمل'};
+  advMusic(musicOn&&!muted);
+  const cam=(x,y)=>{if(mode==='climb'){world.setAttribute('transform',`translate(0 ${300-y})`);par.setAttribute('transform',`translate(0 ${(300-y)*.2})`)}else{world.setAttribute('transform',`translate(${620-x} 0)`);par.setAttribute('transform',`translate(${(620-x)*.3} 0)`)}};
+  const place=(x,y)=>{kidG.setAttribute('transform',`translate(${x} ${y})`);cam(x,y)};
+  const theme=p=>{$('#advS0').setAttribute('stop-color',hexMix(TH.s0[0],TH.s1[0],p));$('#advS1').setAttribute('stop-color',hexMix(TH.s0[1],TH.s1[1],p));
+   $('#advStars').setAttribute('opacity',TH.stars==='fade'?1-p:TH.stars==='grow'?.25+.75*p:0);
+   const sun=$('#advSun');if(TH.sun==='rise')sun.setAttribute('transform',`translate(820 ${400-300*p})`);else if(TH.sun==='move')sun.setAttribute('transform',`translate(${880-700*p} ${90+120*Math.abs(p-.5)})`);else sun.setAttribute('transform','translate(840 85)');
+   $('#advDark').setAttribute('opacity',TH.dark?(1-p)*.85:0);
+   if(TH.walls){const h=(1-p)*170;$('#advWalls').setAttribute('d',`M0 0H1000V${h*.8}Q800 ${h} 620 ${h*.9}Q400 ${h*1.1} 200 ${h*.85}Q100 ${h*.7} 0 ${h}Z M0 420H1000V${420-h*.45}Q700 ${420-h*.6} 400 ${420-h*.4}Q200 ${420-h*.55} 0 ${420-h*.4}Z`)}
+   if(TH.shake){const s=$('#advShake');s.style.setProperty('--amp',((1-p)*7)+'px');s.classList.toggle('shk',p<.95)}
+   if(TH.shield){const c=$('#advShield');c.setAttribute('r',40+80*p);c.setAttribute('opacity',.1+.4*p)}
+   if(TH.birds){const k=2+Math.round(p*8);$('#advBirds').innerHTML=Array.from({length:k},(_,i)=>`<path class="bird" style="animation-delay:-${i*1.3}s;--by:${40+(i*37)%150}px" d="M0 0q8-8 16 0q8-8 16 0" stroke="#2a2f38" stroke-width="3" fill="none"/>`).join('')}
+   if(TH.grow)$$('.pl',ov).forEach(pl=>pl.classList.toggle('tree',true))};
+  let s=0;place(W.pts[0].x,W.pts[0].y);theme(0);
+  const banner=t=>{const b=$('#advban');b.textContent=t;b.classList.remove('show');void b.offsetWidth;b.classList.add('show')};
+  const move=(a,b,ms=1150)=>new Promise(r=>{const t0=performance.now();kidG.classList.add('walking');sfx.whoosh();let hopped=false;const f=now=>{if(!$('#adv'))return r();const t=Math.min(1,(now-t0)/ms),e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;const x=a.x+(b.x-a.x)*e;let y=a.y+(b.y-a.y)*e;const arc=mode==='run'?130:mode==='bike'?60:mode==='boat'?14:46;y-=Math.sin(Math.PI*Math.min(1,Math.max(0,(t-.25)/.5)))*arc;if(!hopped&&t>.3&&mode!=='boat'){hopped=true;tone(440,.25,'square',0,.04,880)}place(x,y);if(t<1)requestAnimationFrame(f);else{kidG.classList.remove('walking');r()}};requestAnimationFrame(f)});
+  const panel=$('#advp');
+  while(s<N){if(!$('#adv'))return;await advAsk(panel,S[s],s,N,stat);if(!$('#adv'))return;
+   pts+=10;$('#advpts').textContent=AR(pts)+' نقطة';banner(rnd(['أحسنت! +١٠','ممتاز! +١٠','بطل! +١٠','ما شاء الله! +١٠']));panel.innerHTML=`<div class="advwalk">${rnd(['يلا نكمل الطريق…','على المحطة اللي بعدها!','خطوة كمان!'])}</div>`;
+   await move(W.pts[s],W.pts[s+1]);s++;
+   const tok=$(`.tok[data-i="${s}"]`,ov);if(tok){tok.classList.add('got');sfx.coin()}const pl=$(`.pl[data-i="${s}"]`,ov);if(pl)pl.classList.add('on');
+   $('#advfill').style.width=(s/N*100)+'%';$('#advcnt').textContent=AR(s)+' / '+AR(N);theme(s/N);const r=$('#advsvg').getBoundingClientRect();confetti(30,r.left+r.width*.62,r.top+r.height*.5)}
+  if(!$('#adv'))return;sfx.fanfare();setTimeout(sfx.cheer,400);confetti(220);setTimeout(()=>speak(rnd(PRAISE)),700);
+  const stars=stat.wrong<=1?3:stat.wrong<=4?2:1;await sleep(900);if(!$('#adv'))return;advMusic(false);
+  ov.innerHTML=`<div class="advstart"><div class="advcard advend">${advMedal(stars)}<h2>وسام ${ACADEMY}</h2><p class="advworld">أنهيت ${ADV_MODES[mode]} — ${episode}</p><div class="advstats"><div><b>${AR(N)}</b>محطة</div><div><b>${AR(stat.att)}</b>محاولة</div><div><b>${AR(stat.wrong)}</b>تلميح</div><div><b>${AR(pts)}</b>نقطة</div></div><div class="row"><button class="btn o advagain">العب تاني</button><button class="btn g advret">ارجع للحلقة</button></div></div></div>`;
+  confetti(160);$('.advagain',ov).onclick=()=>{sfx.enter();run()};$('.advret',ov).onclick=()=>{sfx.exit();close();openGame(ctx.g.id)}};
+ startScreen()}
 
 /* ========== animated card art (each shows how its game plays) ========== */
 const an=(a,v,d,b=0,ex='')=>`<animate attributeName="${a}" values="${v}" dur="${d}s" begin="${b}s" repeatCount="indefinite"${ex}/>`;
@@ -1042,10 +1309,21 @@ const ART={
  treasure:`<path d="M14 80q30-40 60-10t60-30" stroke="#fff" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>${Rr(126,24,26,20,cO,4)}${Rr(124,20,30,8,'#D8552B',3)}${Dm(139,34,4,cY)}<circle r="8" fill="${cW}"><animateMotion dur="3s" repeatCount="indefinite" path="M14 80q30-40 60-10t60-30"/></circle>`,
  xo:`<path d="M66 12v76M96 12v76M40 38h82M40 64h82" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`+[[50,25,'x',0],[80,51,'o',.6],[110,77,'x',1.2],[110,25,'o',1.8]].map(([x,y,t,b])=>`<g opacity="0">${t==='x'?`<path d="M${x-8} ${y-8}l16 16M${x+8} ${y-8}l-16 16" stroke="#fff" stroke-width="5" stroke-linecap="round"/>`:`<circle cx="${x}" cy="${y}" r="8" fill="none" stroke="${cO}" stroke-width="5"/>`}${an('opacity','0;1;1;0','3.6',b)}</g>`).join('')
 };
+const ART_ADV={
+ advrun:`<rect x="0" y="78" width="160" height="22" fill="#a86b3c"/><rect x="0" y="74" width="160" height="7" fill="#7cc36a"/><rect x="66" y="74" width="26" height="26" fill="#3a9ad9"/><g>${Rr(96,20,20,20,'#f2b632',4)}${Tx(106,31,'؟','#fff',14)}${tr('translate','0 0;0 -6;0 0;0 0','1.2')}</g><g><circle cx="0" cy="-30" r="7" fill="#C98B5E"/><path d="M-7 -36a7 6 0 0 1 14 0z" fill="#fff"/><path d="M-8 -24h16l3 22h-22z" fill="#fff"/>${tr('translate','130 74;100 40;70 74;40 74;130 74','3')}</g><circle cx="106" cy="14" r="5" fill="#ffd36b" opacity="0">${an('opacity','0;0;1;0','1.2')}</circle>`,
+ advboat:`<rect x="0" y="62" width="160" height="38" fill="#3a9ad9"/><path d="M0 66q10-6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0" stroke="#bfe8ff" stroke-width="3" fill="none">${an('d','M0 66q10-6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0;M0 66q10 6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0;M0 66q10-6 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0','2')}</path><g><path d="M-26 0h52l-8 12h-36z" fill="#9b5a2e"/><path d="M4 0V-46" stroke="#5b3a22" stroke-width="2"/><path d="M6 -44q18 20 2 42z" fill="#fff"/><circle cx="-10" cy="-10" r="6" fill="#C98B5E"/>${tr('translate','140 62;30 62','5')}</g>${Dm(20,52,6,'#f2a12e')}`,
+ advclimb:`<path d="M10 100L80 10L150 100Z" fill="#b38f66"/><path d="M68 25L80 10L92 25Z" fill="#fff"/><path d="M40 92L110 72L55 52L100 34L80 14" stroke="#fff" stroke-width="2.5" stroke-dasharray="3 5" fill="none"/><circle r="6" fill="#F37045"><animateMotion dur="4s" repeatCount="indefinite" path="M40 92L110 72L55 52L100 34L80 14"/></circle><path d="M80 14V0" stroke="#5b3a22" stroke-width="2"/><path d="M80 1h14l-4 4 4 4H80z" fill="#f2a12e"/>`,
+ advbike:`${Rr(6,30,34,48,'#f1d7b3',0)}${Rr(44,22,30,56,'#e9c99a',0)}${Rr(120,34,34,44,'#f4e2c6',0)}<rect x="82" y="8" width="8" height="70" fill="#f3e6cf"/><path d="M82 8q4-10 8 0z" fill="#3d9a54"/><rect x="0" y="78" width="160" height="22" fill="#6d7178"/><path d="M0 89h160" stroke="#f1d36b" stroke-width="2" stroke-dasharray="12 8"/><g><circle cx="-12" cy="-6" r="6" fill="none" stroke="#222" stroke-width="2"/><circle cx="12" cy="-6" r="6" fill="none" stroke="#222" stroke-width="2"/><path d="M-12 -6L-2 -18H10L12 -6" stroke="#e05a3a" stroke-width="2.5" fill="none"/><circle cx="0" cy="-30" r="6" fill="#C98B5E"/><path d="M-6 -24h12l2 10h-16z" fill="#fff"/>${tr('translate','150 84;10 84','4')}</g>`
+};
+Object.assign(ART,ART_ADV);
 const artSVG=id=>`<svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="color:inherit">${ART[id]||''}</svg>`;
 
 /* ========== the 40 games ========== */
 const GAMES=[
+ {id:'advrun',name:'مغامرة الحلقة',desc:'امشِ في عالم السورة محطة محطة… كل محطة سؤال، وكل إجابة صح خطوة لقدّام',cat:'مغامرات',need:'qa',c:'t-teal',play:(c,s)=>advPlay(c,s,'run'),isNew:1,adv:1},
+ {id:'advboat',name:'رحلة القارب',desc:'جدّف في النيل من محطة لمحطة بإجاباتك الصحيحة',cat:'مغامرات',need:'qa',c:'t-mid',play:(c,s)=>advPlay(c,s,'boat'),isNew:1,adv:1},
+ {id:'advclimb',name:'تسلّق الجبل',desc:'اطلع القمة درجة درجة… كل محطة سؤال',cat:'مغامرات',need:'qa',c:'t-org',play:(c,s)=>advPlay(c,s,'climb'),isNew:1,adv:1},
+ {id:'advbike',name:'مشوار في الحارة',desc:'لِف الحارة المصرية بالعجلة ووقف عند كل فانوس لسؤال',cat:'مغامرات',need:'qa',c:'t-dd',play:(c,s)=>advPlay(c,s,'bike'),isNew:1,adv:1},
  {id:'chain',name:'التكرار الذكي',desc:'آية ١، آية ٢، ثم الاثنين معًا… حتى تحفظ المقطع كله',cat:'حفظ',need:'lines',c:'t-org',play:gChain,isNew:1},
  {id:'repeat',name:'كرّر واحفظ',desc:'كرّر الآية والكلمات تختفي حتى تحفظها',cat:'حفظ',need:'lines',c:'t-dd',play:gRepeat},
  {id:'tasmee',name:'التسميع مع الشيخ',desc:'سمّع آية آية، والمعلم يقيّم ويطلع تقرير المراجعة',cat:'حفظ',need:'lines',c:'t-teal',play:gTasmee,isNew:1},
@@ -1089,13 +1367,14 @@ const GAMES=[
 ];
 
 /* ========== home ========== */
-const CATS=['الكل','حفظ','ترتيب','ذاكرة','أسئلة','حروف','حركة','مغامرة','للفصل'];let curCat='الكل';
+const CATS=['الكل','مغامرات','حفظ','ترتيب','ذاكرة','أسئلة','حروف','حركة','مغامرة','للفصل'];let curCat='الكل';
 const card=(g,href,title,desc)=>`<a class="gc" href="${href}"><span class="art ${g.c}">${artSVG(g.id)}</span><span class="tag">${g.cat}</span>${g.isNew?'<span class="tag new">جديدة</span>':''}<span class="tx"><h3>${esc(title||g.name)}</h3><p>${esc(desc||g.desc)}</p></span></a>`;
 function renderHome(){
  $('#filters').innerHTML=CATS.map(c=>`<button class="${c===curCat?'on':''}" data-c="${c}">${c}${c==='للفصل'?' (فرق)':''}</button>`).join('');
  $$('#filters button').forEach(b=>b.onclick=()=>{curCat=b.dataset.c;sfx.tap();renderHome()});
- const list=GAMES.filter(g=>curCat==='الكل'||g.cat===curCat);
- $('#ggrid').innerHTML=list.map(g=>card(g,'#g-'+g.id)).join('');$('#gcount').textContent=AR(GAMES.length)+' لعبة';
+ const list=GAMES.filter(g=>curCat==='الكل'?!g.adv:g.cat===curCat);
+ $('#corner').classList.toggle('hide',curCat!=='الكل');$('#cgrid').innerHTML=GAMES.filter(g=>g.adv).map(g=>card(g,'#g-'+g.id)).join('');
+ $('#ggrid').innerHTML=list.map(g=>card(g,'#g-'+g.id)).join('');$('#gcount').textContent=AR(GAMES.length)+' لعبة';const hc=$('#hcount');if(hc)hc.textContent=AR(GAMES.length);
  const mine=store.get('mine',[]);$('#mineSec').classList.toggle('hide',!mine.length);
  $('#mine').innerHTML=mine.map(m=>{const g=GAMES.find(x=>x.id===m.game);if(!g)return'';return card(g,'#c-'+m.id,m.title,g.name).replace('</a>',`<span class="acts"><button data-ed="${m.id}">تعديل</button><button data-cp="${m.id}">نسخ الكود</button><button data-del="${m.id}">حذف</button></span></a>`)}).join('');
  $$('#mine [data-ed]').forEach(b=>b.onclick=e=>{e.preventDefault();EDIT=b.dataset.ed;MKG=null;location.hash='make'});
@@ -1115,18 +1394,25 @@ function openGame(id){const g=GAMES.find(x=>x.id===id);if(!g){location.hash='hom
  const pk=$('#pk');const makeBtn=g.need?`<button class="btn g" id="mkthis" style="justify-self:start">أو اصنع نسخة بأسئلتك أنت</button>`:'';
  if(g.pick==='juz'){pk.innerHTML=`<p class="ask-t">اختر الجزء</p><div class="opts two">${[30,29,28].map(j=>`<button class="opt f" data-j="${j}">الجزء ${AR(j)}</button>`).join('')}<button class="opt f" data-j="0" style="background:var(--org);color:#fff;border-color:var(--org)">الأجزاء الثلاثة</button></div>${makeBtn}`;
   $$('[data-j]',pk).forEach(b=>b.onclick=()=>{sfx.enter();startPlay(g,+b.dataset.j)})}
- else{const drawP=j=>{lastJuz=j;store.set('juz',j);pk.innerHTML=`<div class="tabs">${[30,29,28].map(x=>`<button class="tab ${x===j?'on':''}" data-j="${x}">الجزء ${AR(x)}</button>`).join('')}</div><div class="sgrid"><button class="sb rnd" data-n="r"><b>عشوائي</b><small>أي سورة</small></button>${inJuz(j).map(n=>{const c=Q[n]?Q[n].length:0,dis=g.min&&c&&c<g.min;return`<button class="sb" data-n="${n}" ${dis?'disabled style="opacity:.4"':''}><b>${NAMES[n]}</b><small>${c?AR(c)+' آيات':''}</small></button>`}).join('')}</div>${makeBtn}`;
+ else{const drawP=j=>{lastJuz=j;store.set('juz',j);pk.innerHTML=`<div class="tabs">${[30,29,28].map(x=>`<button class="tab ${x===j?'on':''}" data-j="${x}">الجزء ${AR(x)}</button>`).join('')}</div><div class="sgrid"><button class="sb rnd" data-n="r"><b>عشوائي</b><small>أي سورة</small></button>${inJuz(j).map(n=>{const c=QF[n]?QF[n].length:0,dis=g.min&&c&&c<g.min;return`<button class="sb" data-n="${n}" ${dis?'disabled style="opacity:.4"':''}><b>${NAMES[n]}</b><small>${c?AR(c)+' آيات':''}</small></button>`}).join('')}</div>${makeBtn}`;
    $$('[data-j]',pk).forEach(b=>b.onclick=()=>{sfx.tap();drawP(+b.dataset.j)});
-   $$('[data-n]',pk).forEach(b=>b.onclick=()=>{sfx.enter();let n=b.dataset.n;if(n==='r'){const ok=inJuz(j).filter(x=>!g.min||!Q[x]||Q[x].length>=g.min);n=rnd(ok)}startPlay(g,+n)});bindMk()};
+   $$('[data-n]',pk).forEach(b=>b.onclick=()=>{sfx.tap();let n=b.dataset.n;if(n==='r'){const ok=inJuz(j).filter(x=>!g.min||!QF[x]||QF[x].length>=g.min);n=rnd(ok)}$$('.sb',pk).forEach(x=>x.classList.toggle('sel',x.dataset.n==String(n)));showRange(+n)});bindMk()};
+  const showRange=async n=>{let r=$('#rng');if(!r){r=document.createElement('div');r.id='rng';r.className='rng';$('.sgrid',pk).after(r)}r.innerHTML='<div class="loading"><span class="spin"></span>بنجهّز الآيات…</div>';
+   let A;try{A=await loadSurah(n)}catch(e){r.innerHTML='<p style="margin:0">تعذّر تحميل السورة، تأكد من الإنترنت.</p>';return}const L=A.length,opt=v=>Array.from({length:L},(_,k)=>`<option value="${k+1}" ${k+1===v?'selected':''}>${AR(k+1)}</option>`).join('');
+   r.innerHTML=`<p class="ask-t" style="margin:0">سورة ${NAMES[n]} — الاختبار على الآيات:</p><div class="row"><label class="field">من آية<select id="ra">${opt(1)}</select></label><label class="field">إلى آية<select id="rb">${opt(L)}</select></label><span class="hint" id="rcount" style="margin:0"></span></div><div class="row"><button class="btn o" id="rgo">${g.adv?'العبها':'ابدأ اللعب'}</button><button class="btn g" id="rall">السورة كلها</button></div>`;
+   const upd=()=>{let a=+$('#ra').value,b=+$('#rb').value;if(b<a){b=a;$('#rb').value=b}$('#rcount').textContent=AR(b-a+1)+' آيات'};$('#ra').onchange=upd;$('#rb').onchange=upd;upd();
+   $('#rall').onclick=()=>{$('#ra').value=1;$('#rb').value=L;upd();sfx.tap()};
+   $('#rgo').onclick=()=>{const a=+$('#ra').value-1,b=+$('#rb').value;if(g.min&&b-a<g.min){toast('اللعبة دي محتاجة '+AR(g.min)+' آيات على الأقل');return}sfx.enter();startPlay(g,n,0,null,{a,b})};
+   r.scrollIntoView({behavior:'smooth',block:'nearest'})};
   drawP(lastJuz);loadAll().then(()=>{if($('#pk')&&location.hash==='#g-'+id&&!CTX)drawP(lastJuz)})}
  function bindMk(){const m=$('#mkthis');if(m)m.onclick=()=>{MKG=g.id;EDIT=null;location.hash='make'}}bindMk();
 }
-async function startPlay(g,sel,ayah,custom){
+async function startPlay(g,sel,ayah,custom,range){
  if(CTX)CTX.dead=true;
- const label=custom?custom.title:g.pick==='juz'?(sel?'الجزء '+AR(sel):'الأجزاء الثلاثة'):'سورة '+NAMES[sel];
+ const label=custom?custom.title:g.pick==='juz'?(sel?'الجزء '+AR(sel):'الأجزاء الثلاثة'):'سورة '+NAMES[sel]+(range?` (الآيات ${AR(range.a+1)}–${AR(range.b)})`:'');
  $('#gbox').innerHTML=shellTop(g,esc(label),true)+`<div class="prog"><i id="gprog" style="width:0"></i></div><div id="gc"><div class="loading"><span class="spin"></span>رفيق يجهّز اللعبة…</div></div>`;
  $('#gback').onclick=()=>{sfx.exit();if(custom)location.hash='home';else openGame(g.id)};
- const again=()=>custom?startPlay(g,0,0,custom):startPlay(g,sel);
+ const again=()=>custom?startPlay(g,0,0,custom):startPlay(g,sel,0,null,range);
  const ctx=CTX={g,sel,dead:false,score:0,total:0,box:$('#gc'),key:null,
   prog(i,n){const p=$('#gprog');if(p)p.style.width=(i/Math.max(1,n)*100)+'%'},
   right(el){if(ctx.dead)return;ctx.score++;cheerSmall(el);const s=$('#gsc');if(s)s.textContent=AR(ctx.score)+' نجوم'},
@@ -1134,10 +1420,10 @@ async function startPlay(g,sel,ayah,custom){
    bigCelebrate(st===3?'ممتاز!':st===2?'أحسنت!':'محاولة جميلة!',msg||`جمعت ${AR(ctx.score)} من ${AR(ctx.total)}`,st,[{t:'العب مرة أخرى',f:again},{t:custom?'كل الألعاب':g.pick==='juz'?'جزء آخر':'سورة أخرى',f:()=>custom?location.hash='home':openGame(g.id)},...(custom?[]:[{t:'كل الألعاب',f:()=>location.hash='home'}])])},
   teams(msg){if(ctx.dead)return;ctx.prog(1,1);bigCelebrate(msg,'أحسنتم يا أبطال',3,[{t:'جولة جديدة',f:again},{t:'كل الألعاب',f:()=>location.hash='home'}])}};
  let src;
- if(custom)src=customSrc(custom.data);
+ if(custom){applyRange(0);src=customSrc(custom.data)}
  else{try{const S=g.pick==='juz'?(sel?inJuz(sel):ALL):[sel];await Promise.all(S.map(loadSurah));if(g.pick!=='juz')await Promise.allSettled([sel-1,sel+1,sel-2,sel+2,sel+3,sel-3].filter(x=>NAMES[x]).map(loadSurah))}
   catch(e){ctx.box.innerHTML=`<div class="panel"><p>تعذّر تحميل الآيات. تأكد من اتصال الإنترنت ثم حاول مرة أخرى.</p><button class="btn" id="retry">حاول مرة أخرى</button></div>`;$('#retry').onclick=()=>startPlay(g,sel,ayah);mood('sad');return}
-  src=quranSrc(sel,g.pick==='juz')}
+  applyRange(g.pick==='juz'?0:sel,range?range.a:0,range?range.b:1e9);src=quranSrc(sel,g.pick==='juz')}
  if(ctx.dead)return;say('يلا بينا! بسم الله',2200);
  try{await g.play(ctx,src,ayah||0)}catch(e){console.error(e);if(!ctx.dead){ctx.box.innerHTML=`<div class="panel"><p>حصلت مشكلة في اللعبة دي مع المحتوى ده. جرّب سورة أو أسئلة تانية.</p><a class="btn" href="#home">كل الألعاب</a></div>`}}
 }
@@ -1172,7 +1458,7 @@ function renderMake(){const box=$('#mbox');const mine=store.get('mine',[]);const
 /* ========== router ========== */
 let lastView='home';
 function route(){
- const h=location.hash.slice(1)||'home';
+ const h=location.hash.slice(1)||'home';const ad=$('#adv');if(ad&&ad._stop)ad._stop();
  const view=h==='board'?'board':h==='make'?'make':h.startsWith('g-')||h.startsWith('c-')?'game':'home';
  if(view!=='game'&&CTX){CTX.dead=true;CTX=null}
  if(lastView==='game'&&view!=='game')sfx.exit();else if(view==='game'&&lastView!=='game')sfx.enter();else if(view!==lastView)sfx.nav();lastView=view;
